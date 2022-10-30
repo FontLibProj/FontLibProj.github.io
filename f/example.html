@@ -1,0 +1,28 @@
+<style id="chng"></style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+<title>Example - Bled's Font Library</title>
+<div class="topnav">
+  <a title="Go to Home" href="/">Home</a>
+  <a title="See All Fonts" href="/all">All</a>
+</div>
+<br><br>
+<h1>Example Font</h1>
+<h3>Test</h3>
+<input type="text" id="tst" placeholder="The quick brown fox jumps over the lazy dog. 1234567890" style>
+<h3>Download</h3>
+<ul>
+  <li><a class="btn" id="n1" download>.ttf</a></li><br><br>
+  <li><a class="btn" id="n2" download>.otf</a></li><br><br>
+  <li><a class="btn" id="n3" download>.eot</a></li><br><br>
+  <li><a class="btn" id="n4" download>.woff</a></li><br><br>
+  <li><a class="btn" id="n5" download>.woff2</a></li>
+</ul>
+<script type="module">
+"use strict";
+import fonts from "//api.npoint.io/06a90786997d472c5fb1" assert {type:'json'};
+const b64toBlob=(b64Data,contentType='',sliceSize=512)=>{const byteCharacters=atob(b64Data);const byteArrays=[];for(let offset=0;offset<byteCharacters.length;offset+=sliceSize){const slice=byteCharacters.slice(offset,offset+sliceSize);const byteNumbers=new Array(slice.length);for(let i=0;i<slice.length;i++){byteNumbers[i]=slice.charCodeAt(i);}const byteArray=new Uint8Array(byteNumbers);byteArrays.push(byteArray);}const blob=new Blob(byteArrays,{type:contentType});return blob};
+const url_1=URL.createObjectURL(b64toBlob(fonts.data,'font/ttf')).toString();const url_2=URL.createObjectURL(b64toBlob(fonts.data,'font/otf')).toString();const url_3=URL.createObjectURL(b64toBlob(fonts.data,'font/eot')).toString();const url_4=URL.createObjectURL(b64toBlob(fonts.data,'font/woff')).toString();const url_5=URL.createObjectURL(b64toBlob(fonts.data,'font/woff2')).toString();
+document.querySelector('#chng').innerHTML=`@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;src:url('${url_1}') format('ttf');}#tst{font-family:'Work Sans';}`;
+document.querySelector('#n1').href=`${url_1}`;document.querySelector('#n2').href=`${url_2}`;document.querySelector('#n3').href=`${url_3}`;document.querySelector('#n4').href=`${url_4}`;document.querySelector('#n5').href=`${url_5}`;
+</script>
