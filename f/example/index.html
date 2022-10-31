@@ -20,7 +20,7 @@
 </ul>
 <script type="module">
 "use strict";
-import fonts from "//api.npoint.io/06a90786997d472c5fb1" assert {type:'json'};
+import fonts from "//api.npoint.io/efebafb150777bd18aaa" assert {type:'json'};
 const b64toBlob=(b64Data,contentType='',sliceSize=512)=>{const byteCharacters=atob(b64Data);const byteArrays=[];for(let offset=0;offset<byteCharacters.length;offset+=sliceSize){const slice=byteCharacters.slice(offset,offset+sliceSize);const byteNumbers=new Array(slice.length);for(let i=0;i<slice.length;i++){byteNumbers[i]=slice.charCodeAt(i);}const byteArray=new Uint8Array(byteNumbers);byteArrays.push(byteArray);}const blob=new Blob(byteArrays,{type:contentType});return blob};
 const url_1=URL.createObjectURL(b64toBlob(fonts.data,'font/ttf')).toString();const url_2=URL.createObjectURL(b64toBlob(fonts.data,'font/otf')).toString();const url_3=URL.createObjectURL(b64toBlob(fonts.data,'font/eot')).toString();const url_4=URL.createObjectURL(b64toBlob(fonts.data,'font/woff')).toString();const url_5=URL.createObjectURL(b64toBlob(fonts.data,'font/woff2')).toString();
 document.querySelector('#chng').innerHTML=`@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;src:url('${url_1}') format('ttf');}#tst{font-family:'Work Sans';}`;
